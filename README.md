@@ -1,4 +1,4 @@
-# Spring-Boot-web-
+# Spring-Boot-web
 一个员工管理后台，前端：thymeleaf+ajax；后端：Spring-Boot+Mybatis
 
 MySQL 数据库
