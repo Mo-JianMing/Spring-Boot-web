@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mj.dao.EmpDao">
+    <select id="select" resultType="Emp">
+        select * from t_emp where id = #{id}
+    </select>
+    <delete id="delete" parameterType="java.lang.String">
+        delete from t_emp where t_emp.name = #{name}
+    </delete>
+    <select id="alter" resultType="Emp">
+        select * from t_emp where t_emp.name = #{name}
+    </select>
+    <update id="upData" parameterType="Emp">
+        update t_emp set t_emp.name = #{emp.name} ,
+        salary = #{emp.salary} , bir = #{emp.bir} where t_emp.name = #{jn}
+    </update>
+    <update id="toSave" parameterType="Emp">
+        insert into t_emp values (#{id},#{name},#{salary},#{bir})
+    </update>
+</mapper>

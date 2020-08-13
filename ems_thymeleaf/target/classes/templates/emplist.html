@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>emplist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div id="wrap">
+    <div id="top_content">
+        <div id="header">
+            <div id="rightheader">
+                <p>
+                    2020/8/11
+                    <br/>
+                </p>
+            </div>
+            <div id="topheader">
+                <h1 id="title">
+                    <a href="#">主界面</a>
+                </h1>
+            </div>
+            <div id="navigation">
+            </div>
+        </div>
+        <div id="content">
+            <p id="whereami">
+            </p>
+            <h1>
+                Welcome!
+            </h1>
+            <table class="table" >
+                <tr class="table_header">
+                    <td>
+                        Rank
+                    </td>
+                    <td>
+                        Name
+                    </td>
+                    <td>
+                        Salary
+                    </td>
+                    <td>
+                        Birth
+                    </td>
+                    <td>
+                        Operation
+                    </td>
+                </tr>
+                <tr class="row1" th:each="emp,i:${emps}">
+                    <td>
+                        <span th:text="${i.count}"></span>
+                    </td>
+                    <td>
+                        <span th:text="${emp.name}"></span>
+                    </td>
+                    <td>
+                        <span th:text="${emp.salary}"></span>
+                    </td>
+                    <td>
+                        <!--日期格式化-->
+                        <span th:text="${#dates.format(emp.bir,'yyyy-MM-dd')}"></span>
+                    </td>
+
+                    <td>
+                        <a th:href="@{delete(name=${emp.name})}">删除信息</a>&nbsp;
+                        <a th:href="@{alter(name=${emp.name})}">修改信息</a>
+                    </td>
+                </tr>
+                <tr >
+                    <td valign="middle" align="left">
+                        <input type="button" class="inputgri" value="添加员工 &raquo;"
+                               onclick="location.href='toAdd'"/>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td valign="middle" align="right">
+                        <input type="button" class="inputgri" value="退出 &raquo;"
+                               onclick="location.href='/ems'"/>
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+    </div>
+    <div id="footer">
+        <div id="footer_bg">
+            @mj
+        </div>
+    </div>
+</div>
+</body>
+</html>
